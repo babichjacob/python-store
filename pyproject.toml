@@ -7,7 +7,7 @@ readme = "README.md"
 packages = [{include = "store"}]
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = ">=3.10"
 
 [tool.poetry.dev-dependencies]
 black = "^22.12.0"
