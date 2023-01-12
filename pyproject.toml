@@ -1,9 +1,11 @@
 [tool.poetry]
 name = "babichjacob-store"
 version = "0.1.2"
-description = ""
+description = "A Python implementation of svelte/store"
+license = "MIT"
 authors = ["J or Jacob Babich <jacobbabichpublic+git@gmail.com>"]
 readme = "README.md"
+repository = "https://github.com/babichjacob/python-store"
 packages = [{include = "store"}]
 
 [tool.poetry.dependencies]
