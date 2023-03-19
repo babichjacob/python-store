@@ -9,17 +9,17 @@ Value = TypeVar("Value")
 SetReturn = TypeVar("SetReturn")
 
 
-@dataclass(frozen=True, slots=True)
+@dataclass(frozen=True)
 class Readable(Generic[Value]):
     subscribe: Callable[[Callable[[Value], None]], Callable[[], None]]
 
 
-@dataclass(frozen=True, slots=True)
+@dataclass(frozen=True)
 class Writable(Readable[Value], Generic[Value, SetReturn]):
     set: Callable[[Value], SetReturn]
 
 
-@dataclass(frozen=True, slots=True)
+@dataclass(frozen=True)
 class Updatable(Writable[Value, SetReturn], Generic[Value, SetReturn]):
     update: Callable[[Callable[[Value], Value]], None]
 
