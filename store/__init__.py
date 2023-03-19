@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from functools import partial
 from operator import lshift
-from typing import Any, Callable, Generic, Optional, ParamSpec, Tuple, TypeVar
+from typing import Any, Callable, Generic, Optional, Tuple, TypeVar
 
 
 Value = TypeVar("Value")
@@ -84,7 +84,6 @@ def get(store: Readable[Value]) -> Value:
 
 
 DerivedValue = TypeVar("DerivedValue")
-Args = ParamSpec("Args")
 
 
 def no_op():
@@ -100,7 +99,6 @@ def derived(
     def start(set_: Callable[[DerivedValue], None]):
         if n == 0:
             set_(fn())  # type: ignore
-            #   TODO: figure out if I should stop using paramspec
             return no_op
 
         values: list[Optional[Any]] = [None] * n
@@ -115,7 +113,6 @@ def derived(
                 if pending:
                     pending &= ~(1 << i)
                 if not pending:
-                    # TODO: figure out if I should stop using paramspec
                     result = fn(*values)  # type: ignore
                     set_(result)
 
