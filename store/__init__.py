@@ -92,7 +92,7 @@ def no_op():
 
 def derived(
     stores: list[Readable[Any]],
-    fn: Callable[Args, DerivedValue],
+    fn: Callable[..., DerivedValue],
 ) -> Readable[DerivedValue]:
     n = len(stores)
 
